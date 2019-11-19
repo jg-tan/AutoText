@@ -19,7 +19,7 @@ public class MainActivityPresenter implements IMainActivityContract.Presenter {
     }
 
     @Override
-    public void setMode(Object o) {
+    public void setModel(Object o) {
 
     }
 }

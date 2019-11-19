@@ -17,6 +17,6 @@ public interface IBaseContract {
 
         void onDestroy();
 
-        void setMode(T t);
+        void setModel(T t);
     }
 }

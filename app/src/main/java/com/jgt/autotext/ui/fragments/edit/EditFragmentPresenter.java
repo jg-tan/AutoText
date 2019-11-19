@@ -19,7 +19,7 @@ public class EditFragmentPresenter implements IEditFragmentContract.Presenter {
     }
 
     @Override
-    public void setMode(Object o) {
+    public void setModel(Object o) {
 
     }
 }
