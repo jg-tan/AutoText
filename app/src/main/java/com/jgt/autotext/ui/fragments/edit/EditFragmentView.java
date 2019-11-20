@@ -62,8 +62,7 @@ public class EditFragmentView extends Fragment implements IEditFragmentContract.
                 String name = etName.getText().toString();
                 String number = etNumber.getText().toString();
                 String message = etMessage.getText().toString();
-                Item item = new Item(name, number, message);
-                presenter.onAddClicked(item);
+                presenter.onAddClicked(name, number, message);
                 break;
             case R.id.fragment_edit_btn_delete_all:
                 presenter.onDeleteAllClicked();
@@ -82,6 +81,24 @@ public class EditFragmentView extends Fragment implements IEditFragmentContract.
     @Override
     public void showDeleteAllSuccessToast() {
         Toast.makeText(activity, getResources().getString(R.string.fragment_edit_toast_delete_all_success),
+                Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showNameEmptyToast() {
+        Toast.makeText(activity, getResources().getString(R.string.fragment_edit_toast_name_empty),
+                Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showNumberEmptyToast() {
+        Toast.makeText(activity, getResources().getString(R.string.fragment_edit_toast_number_empty),
+                Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showMessageEmptyToast() {
+        Toast.makeText(activity, getResources().getString(R.string.fragment_edit_toast_message_empty),
                 Toast.LENGTH_LONG).show();
     }
 }

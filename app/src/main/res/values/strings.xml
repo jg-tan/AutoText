@@ -25,6 +25,9 @@
     <!-- Fragment Strings -->
     <string name="fragment_edit_toast_insert_success">Item added!</string>
     <string name="fragment_edit_toast_delete_all_success">All items deleted!</string>
+    <string name="fragment_edit_toast_name_empty">Please add contact name</string>
+    <string name="fragment_edit_toast_number_empty">Please add contact number</string>
+    <string name="fragment_edit_toast_message_empty">Please add a message</string>
     <!-- Edit Fragment -->
 
 </resources>

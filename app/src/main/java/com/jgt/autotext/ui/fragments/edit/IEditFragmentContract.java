@@ -14,10 +14,16 @@ public interface IEditFragmentContract {
         void showInsertSuccessToast();
 
         void showDeleteAllSuccessToast();
+
+        void showNameEmptyToast();
+
+        void showNumberEmptyToast();
+
+        void showMessageEmptyToast();
     }
 
     interface Presenter extends IBaseContract.Presenter {
-        void onAddClicked(Item item);
+        void onAddClicked(String name, String number, String message);
 
         void onDeleteAllClicked();
 

@@ -33,7 +33,23 @@ public class EditFragmentPresenter implements IEditFragmentContract.Presenter {
     }
 
     @Override
-    public void onAddClicked(Item item) {
+    public void onAddClicked(String name, String number, String message) {
+        if(name.isEmpty()) {
+            view.showNameEmptyToast();
+            return;
+        }
+
+        if(number.isEmpty()) {
+            view.showNumberEmptyToast();
+            return;
+        }
+
+        if(message.isEmpty()) {
+            view.showMessageEmptyToast();
+            return;
+        }
+
+        Item item = new Item(name, number, message);
         model.insertItem(item);
     }
 
