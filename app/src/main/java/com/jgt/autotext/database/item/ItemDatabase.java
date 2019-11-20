@@ -1,4 +1,4 @@
-package com.jgt.autotext.database;
+package com.jgt.autotext.database.item;
 
 import com.jgt.autotext.utils.AppContext;
 

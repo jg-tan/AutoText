@@ -9,7 +9,7 @@ public class AppContext extends Application {
         instance = this;
     }
 
-    public static final AppContext getContext() {
+    public static AppContext getContext() {
         return instance;
     }
 }
