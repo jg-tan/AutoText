@@ -1,4 +1,4 @@
-package com.jgt.autotext.database;
+package com.jgt.autotext.database.item;
 
 import java.util.List;
 
@@ -19,4 +19,7 @@ public interface ItemDao {
     @Query("DELETE FROM item_table " +
             "WHERE item_name == :itemName")
     void deleteItem(String itemName);
+
+    @Query("DELETE FROM item_table")
+    void deleteAll();
 }

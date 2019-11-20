@@ -1,4 +1,4 @@
-package com.jgt.autotext.database;
+package com.jgt.autotext.database.item;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -17,6 +17,12 @@ public class Item {
     private String itemMessage;
     @ColumnInfo(name = "item_count")
     private int itemCount;
+
+    public Item(@NonNull String itemName, String itemNumber, String itemMessage) {
+        this.itemName = itemName;
+        this.itemNumber = itemNumber;
+        this.itemMessage = itemMessage;
+    }
 
     public String getItemName() {
         return itemName;

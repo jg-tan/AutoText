@@ -4,8 +4,30 @@
     <string name="title_list">List</string>
     <string name="title_edit">Edit</string>
 
-    <string name="fragment_list_item_name">Item Name</string>
-    <string name="fragment_list_item_number">Item Number</string>
-    <string name="fragment_list_item_message">Item Message</string>
+    <!-- List Fragment -->
+    <!-- Layout Strings -->
+    <!-- Fragment Strings -->
+    <!-- List Fragment -->
+
+    <!-- Grid Fragment -->
+    <!-- Layout Strings -->
+    <!-- Fragment Strings -->
+    <!-- Grid Fragment -->
+
+    <!-- Edit Fragment -->
+    <!-- Layout Strings -->
+    <string name="fragment_edit_tv_item_name">NAME</string>
+    <string name="fragment_edit_tv_item_number">NUMBER</string>
+    <string name="fragment_edit_tv_item_message">MESSAGE</string>
+    <string name="fragment_edit_btn_add">ADD</string>
+    <string name="fragment_edit_btn_delete_all">DELETE ALL</string>
+
+    <!-- Fragment Strings -->
+    <string name="fragment_edit_toast_insert_success">Item added!</string>
+    <string name="fragment_edit_toast_delete_all_success">All items deleted!</string>
+    <string name="fragment_edit_toast_name_empty">Please add contact name</string>
+    <string name="fragment_edit_toast_number_empty">Please add contact number</string>
+    <string name="fragment_edit_toast_message_empty">Please add a message</string>
+    <!-- Edit Fragment -->
 
 </resources>
