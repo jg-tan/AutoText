@@ -7,8 +7,9 @@ import com.jgt.autotext.database.DatabaseTaskListener;
 import java.util.List;
 
 public class ItemRepository {
-    private ItemDao itemDao;
     private static ItemRepository instance;
+    private ItemDao itemDao;
+    private List<Item> itemList;
 
     private ItemRepository() {
         ItemDatabase db = ItemDatabase.getInstance();
@@ -28,8 +29,8 @@ public class ItemRepository {
         new InsertItemAsyncTask(item, itemDao, listener).execute();
     }
 
-    public List<Item> getItemList() {
-        return itemDao.queryAll();
+    public void populateItemList(DatabaseTaskListener listener) {
+        new QueryItemAsyncTask(itemDao, listener).execute();
     }
 
     public void deleteItem(String itemName, DatabaseTaskListener listener) {
@@ -38,6 +39,10 @@ public class ItemRepository {
 
     public void deleteAll(DatabaseTaskListener listener) {
         new DeleteItemAsyncTask("", itemDao, listener).execute();
+    }
+
+    public List<Item> getItemList() {
+        return itemList;
     }
 
     class InsertItemAsyncTask extends AsyncTask<Void, Void, Void> {
@@ -77,12 +82,34 @@ public class ItemRepository {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            if(itemName.isEmpty()) {
+            if (itemName.isEmpty()) {
                 itemDao.deleteAll();
                 return null;
             }
 
             itemDao.deleteItem(itemName);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            listener.onFinish();
+            super.onPostExecute(aVoid);
+        }
+    }
+
+    class QueryItemAsyncTask extends AsyncTask<Void, Void, Void> {
+        private ItemDao itemDao;
+        private DatabaseTaskListener listener;
+
+        public QueryItemAsyncTask(ItemDao itemDao, DatabaseTaskListener listener) {
+            this.itemDao = itemDao;
+            this.listener = listener;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            itemList = itemDao.queryAll();
             return null;
         }
 

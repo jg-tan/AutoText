@@ -21,7 +21,6 @@ public class EditFragmentView extends Fragment implements IEditFragmentContract.
     private IEditFragmentContract.Presenter presenter;
 
     private MainActivityView activity;
-
     private View rootView;
     private EditText etName, etNumber, etMessage;
     private Button btnAdd, btnDeleteAll;

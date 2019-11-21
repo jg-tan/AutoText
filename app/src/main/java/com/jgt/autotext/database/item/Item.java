@@ -22,6 +22,7 @@ public class Item {
         this.itemName = itemName;
         this.itemNumber = itemNumber;
         this.itemMessage = itemMessage;
+        this.itemCount = 0;
     }
 
     public String getItemName() {

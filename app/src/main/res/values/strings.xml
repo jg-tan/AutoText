@@ -6,6 +6,10 @@
 
     <!-- List Fragment -->
     <!-- Layout Strings -->
+    <string name="fragment_list_tv_item_name_label">NAME: </string>
+    <string name="fragment_list_tv_item_number_label">NUMBER: </string>
+    <string name="fragment_list_tv_item_message_label">MESSAGE: </string>
+    <string name="fragment_list_tv_item_count_label">COUNT: </string>
     <!-- Fragment Strings -->
     <!-- List Fragment -->
 
