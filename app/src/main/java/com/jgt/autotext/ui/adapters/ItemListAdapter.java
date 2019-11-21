@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.jgt.autotext.R;
 import com.jgt.autotext.database.item.Item;
-import com.jgt.autotext.ui.fragments.list.ListFragmentView;
 
 import java.util.List;
 

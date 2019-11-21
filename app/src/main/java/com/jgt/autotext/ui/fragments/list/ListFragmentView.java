@@ -55,7 +55,7 @@ public class ListFragmentView extends Fragment implements IListFragmentContract.
 
     @Override
     public void showList() {
-        Log.d(TAG, "List Size: " + +presenter.getItemList().size());
+        Log.d(TAG, "List Size: " + presenter.getItemList().size());
         adapter.setItemList(presenter.getItemList());
     }
 }
