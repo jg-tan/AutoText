@@ -51,6 +51,7 @@ public class EditFragmentPresenter implements IEditFragmentContract.Presenter {
 
         Item item = new Item(name, number, message);
         model.insertItem(item);
+        view.dismissKeyboard();
     }
 
     @Override

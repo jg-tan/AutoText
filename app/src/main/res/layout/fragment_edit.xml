@@ -125,7 +125,7 @@
 
     <Button
         android:id="@+id/fragment_edit_btn_enable_sms"
-        android:layout_width="76dp"
+        android:layout_width="wrap_content"
         android:layout_height="38dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="28dp"
