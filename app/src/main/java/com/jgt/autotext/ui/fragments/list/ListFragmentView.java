@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.jgt.autotext.R;
 import com.jgt.autotext.ui.activities.main.MainActivityView;
@@ -16,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ListFragmentView extends Fragment implements IListFragmentContract.View {
+public class ListFragmentView extends Fragment implements IListFragmentContract.View, View.OnClickListener {
     private static final String TAG = ListFragmentView.class.getSimpleName();
     private IListFragmentContract.Presenter presenter;
 
@@ -48,6 +49,7 @@ public class ListFragmentView extends Fragment implements IListFragmentContract.
         adapter = new ItemListAdapter();
         linearLayoutManager = new LinearLayoutManager(activity);
 
+        adapter.setOnClickListener(this);
         rvItemList.setHasFixedSize(true);
         rvItemList.setLayoutManager(linearLayoutManager);
         rvItemList.setAdapter(adapter);
@@ -57,5 +59,30 @@ public class ListFragmentView extends Fragment implements IListFragmentContract.
     public void showList() {
         Log.d(TAG, "List Size: " + presenter.getItemList().size());
         adapter.setItemList(presenter.getItemList());
+    }
+
+    @Override
+    public void showItemDeletedSuccess() {
+        Toast.makeText(activity, getResources().getString(R.string.fragment_list_toast_item_delete_success),
+                Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (!(v.getTag() instanceof RecyclerView.ViewHolder)) {
+            return;
+        }
+
+        RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) v.getTag();
+        int position = viewHolder.getAdapterPosition();
+        int id = v.getId();
+        Log.d(TAG, "" + position);
+        switch (id) {
+            case R.id.fragment_list_btn_delete:
+                presenter.onItemDeleteClicked(position);
+                break;
+            default:
+                break;
+        }
     }
 }

@@ -10,6 +10,7 @@
     <string name="fragment_list_tv_item_number_label">NUMBER: </string>
     <string name="fragment_list_tv_item_message_label">MESSAGE: </string>
     <string name="fragment_list_tv_item_count_label">COUNT: </string>
+    <string name="fragment_list_toast_item_delete_success">Item deleted!</string>
     <!-- Fragment Strings -->
     <!-- List Fragment -->
 

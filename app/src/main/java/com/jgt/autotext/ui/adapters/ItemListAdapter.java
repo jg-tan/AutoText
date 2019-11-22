@@ -14,10 +14,11 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemListViewHolder> implements View.OnClickListener {
+public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemListViewHolder> {
     private static final String TAG = ItemListAdapter.class.getSimpleName();
 
-    List<Item> itemList;
+    private List<Item> itemList;
+    private View.OnClickListener onClickListener;
 
     @NonNull
     @Override
@@ -33,7 +34,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
             holder.tvNumber.setText(itemList.get(position).getItemNumber());
             holder.tvMessage.setText(itemList.get(position).getItemMessage());
             holder.tvCount.setText(String.valueOf(itemList.get(position).getItemCount()));
-            holder.btnDelete.setOnClickListener(this);
+            holder.btnDelete.setOnClickListener(onClickListener);
         }
     }
 
@@ -50,8 +51,8 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
         notifyDataSetChanged();
     }
 
-    @Override
-    public void onClick(View v) {
+    public void setOnClickListener(View.OnClickListener listener) {
+        this.onClickListener = listener;
     }
 
     class ItemListViewHolder extends RecyclerView.ViewHolder {
@@ -65,6 +66,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
             this.tvMessage = itemView.findViewById(R.id.fragment_list_tv_message);
             this.tvCount = itemView.findViewById(R.id.fragment_list_tv_count);
             this.btnDelete = itemView.findViewById(R.id.fragment_list_btn_delete);
+            this.btnDelete.setTag(this);
         }
     }
 }

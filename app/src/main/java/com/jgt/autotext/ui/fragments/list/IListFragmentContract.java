@@ -10,15 +10,23 @@ public interface IListFragmentContract {
         List<Item> getItemList();
 
         void populateItemList();
+
+        void deleteItem(int position);
     }
 
     interface View extends IBaseContract.View {
         void showList();
+
+        void showItemDeletedSuccess();
     }
 
     interface Presenter extends IBaseContract.Presenter {
         List<Item> getItemList();
 
         void onItemListObtained();
+
+        void onItemDeleteClicked(int position);
+
+        void onItemDeleted();
     }
 }
