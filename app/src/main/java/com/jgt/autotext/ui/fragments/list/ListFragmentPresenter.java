@@ -44,4 +44,15 @@ public class ListFragmentPresenter implements IListFragmentContract.Presenter {
     public void onItemListObtained() {
         view.showList();
     }
+
+    @Override
+    public void onItemDeleteClicked(int position) {
+        model.deleteItem(position);
+    }
+
+    @Override
+    public void onItemDeleted() {
+        view.showItemDeletedSuccess();
+        model.populateItemList();
+    }
 }

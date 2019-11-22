@@ -12,12 +12,14 @@ import com.jgt.autotext.database.item.Item;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ItemGridAdapter extends RecyclerView.Adapter<ItemGridAdapter.ItemGridViewHolder> {
     private static final String TAG = ItemGridAdapter.class.getSimpleName();
 
-    List<Item> itemList;
+    private List<Item> itemList;
+    private View.OnClickListener onClickListener;
 
     @NonNull
     @Override
@@ -31,6 +33,7 @@ public class ItemGridAdapter extends RecyclerView.Adapter<ItemGridAdapter.ItemGr
         if(null != holder) {
             holder.tvName.setText(itemList.get(position).getItemName());
 //            holder.ivImage.setImageBitmap();
+            holder.btnItem.setOnClickListener(onClickListener);
         }
     }
 
@@ -47,14 +50,21 @@ public class ItemGridAdapter extends RecyclerView.Adapter<ItemGridAdapter.ItemGr
         notifyDataSetChanged();
     }
 
+    public void setOnClickListener(View.OnClickListener listener) {
+        this.onClickListener = listener;
+    }
+
     class ItemGridViewHolder extends RecyclerView.ViewHolder {
         private TextView tvName;
         private ImageView ivImage;
+        private CardView btnItem;
 
         public ItemGridViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.fragment_grid_tv_item_name);
-            ivImage = itemView.findViewById(R.id.fragment_grid_iv_item_image);
+            this.tvName = itemView.findViewById(R.id.fragment_grid_tv_item_name);
+            this.ivImage = itemView.findViewById(R.id.fragment_grid_iv_item_image);
+            this.btnItem = itemView.findViewById(R.id.fragment_grid_btn_item);
+            this.btnItem.setTag(this);
         }
     }
 }
