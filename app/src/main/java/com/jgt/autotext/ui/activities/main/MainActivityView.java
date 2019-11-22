@@ -1,6 +1,8 @@
 package com.jgt.autotext.ui.activities.main;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -44,5 +46,13 @@ public class MainActivityView extends AppCompatActivity implements IMainActivity
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
+    }
+
+    @Override
+    public void requestPermissions() {
+        if(PackageManager.PERMISSION_DENIED == checkSelfPermission(Manifest.permission.SEND_SMS)) {
+            String[] permissions = {Manifest.permission.SEND_SMS};
+            requestPermissions(permissions, 1);
+        }
     }
 }

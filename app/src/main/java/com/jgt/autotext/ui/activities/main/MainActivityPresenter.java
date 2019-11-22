@@ -13,6 +13,7 @@ public class MainActivityPresenter implements IMainActivityContract.Presenter {
     @Override
     public void onCreate() {
         view.initViews();
+        view.requestPermissions();
     }
 
     @Override

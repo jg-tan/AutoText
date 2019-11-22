@@ -45,6 +45,10 @@ public class ItemRepository {
         return itemList;
     }
 
+    public void addCount(String itemName, DatabaseTaskListener listener) {
+        new AddItemCountAsyncTask(itemName, itemDao, listener).execute();
+    }
+
     class InsertItemAsyncTask extends AsyncTask<Void, Void, Void> {
         private Item item;
         private ItemDao itemDao;
@@ -59,6 +63,30 @@ public class ItemRepository {
         @Override
         protected Void doInBackground(Void... voids) {
             itemDao.insertItem(item);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            listener.onFinish();
+            super.onPostExecute(aVoid);
+        }
+    }
+
+    class AddItemCountAsyncTask extends AsyncTask<Void, Void, Void> {
+        private String itemName;
+        private ItemDao itemDao;
+        private DatabaseTaskListener listener;
+
+        public AddItemCountAsyncTask(String itemName, ItemDao itemDao, DatabaseTaskListener listener) {
+            this.itemName = itemName;
+            this.itemDao = itemDao;
+            this.listener = listener;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            itemDao.addCount(itemName);
             return null;
         }
 

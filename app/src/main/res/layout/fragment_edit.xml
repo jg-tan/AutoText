@@ -102,7 +102,41 @@
         app:layout_constraintHorizontal_bias="0.83"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_edit_tv_item_message"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.001" />
+
+    <!-- TEMPORARY -->
+
+    <!-- TEMPORARY -->
+
+    <Button
+        android:id="@+id/fragment_edit_btn_disable_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="28dp"
+        android:text="Disable"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.822"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_edit_tv_item_message"
+        app:layout_constraintVertical_bias="0.436" />
+
+    <Button
+        android:id="@+id/fragment_edit_btn_enable_sms"
+        android:layout_width="76dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="28dp"
+        android:text="Enable"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_edit_tv_item_message"
+        app:layout_constraintVertical_bias="0.436" />
 
     <Button
         android:id="@+id/fragment_edit_btn_delete_all"
