@@ -10,15 +10,25 @@ public interface IGridFragmentContract {
         void populateItemGrid();
 
         List<Item> getItemList();
+
+        void increaseCount(int position);
+
+        void sendSms(int position);
+
+        Item getItem(int position);
     }
 
     interface View extends IBaseContract.View {
         void showGrid();
+
+        void sendSms(String number, String message);
     }
 
     interface Presenter extends IBaseContract.Presenter {
         void onItemListObtained();
 
         List<Item> getItemList();
+
+        void onItemClicked(int position);
     }
 }

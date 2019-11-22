@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.jgt.autotext.R;
 import com.jgt.autotext.database.item.Item;
+import com.jgt.autotext.sms.AutoTextSmsManager;
 import com.jgt.autotext.ui.activities.main.MainActivityView;
 import com.jgt.autotext.ui.adapters.ItemGridAdapter;
 import com.jgt.autotext.utils.Log;
@@ -20,7 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class GridFragmentView extends Fragment implements IGridFragmentContract.View {
+public class GridFragmentView extends Fragment implements IGridFragmentContract.View, View.OnClickListener {
     private static final String TAG = GridFragmentView.class.getSimpleName();
     private IGridFragmentContract.Presenter presenter;
 
@@ -51,6 +52,7 @@ public class GridFragmentView extends Fragment implements IGridFragmentContract.
         rvItemGrid = rootView.findViewById(R.id.fragment_grid_rv_item_grid);
         adapter = new ItemGridAdapter();
 
+        adapter.setOnClickListener(this);
         rvItemGrid.setHasFixedSize(true);
         rvItemGrid.setAdapter(adapter);
     }
@@ -67,5 +69,29 @@ public class GridFragmentView extends Fragment implements IGridFragmentContract.
         gridLayoutManager = new GridLayoutManager(activity, Utils.getRowColCount(itemList.size()));
         rvItemGrid.setLayoutManager(gridLayoutManager);
         adapter.setItemList(itemList);
+    }
+
+    @Override
+    public void sendSms(String number, String message) {
+        AutoTextSmsManager.getInstance().sendSms(number, message);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (!(v.getTag() instanceof RecyclerView.ViewHolder)) {
+            return;
+        }
+
+        RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) v.getTag();
+        int position = viewHolder.getAdapterPosition();
+        int id = v.getId();
+        Log.d(TAG, "" + position);
+        switch (id) {
+            case R.id.fragment_grid_btn_item:
+                presenter.onItemClicked(position);
+                break;
+            default:
+                break;
+        }
     }
 }

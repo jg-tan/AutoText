@@ -43,4 +43,13 @@ public class GridFragmentPresenter implements IGridFragmentContract.Presenter {
     public List<Item> getItemList() {
         return model.getItemList();
     }
+
+    @Override
+    public void onItemClicked(int position) {
+        model.increaseCount(position);
+        Item item = model.getItem(position);
+        String number = item.getItemNumber();
+        String message = item.getItemMessage();
+        view.sendSms(number, message);
+    }
 }

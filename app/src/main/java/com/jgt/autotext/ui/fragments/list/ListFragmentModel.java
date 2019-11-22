@@ -50,6 +50,5 @@ public class ListFragmentModel implements IListFragmentContract.Model, DatabaseT
             default:
                 break;
         }
-
     }
 }

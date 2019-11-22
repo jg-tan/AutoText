@@ -4,6 +4,7 @@ import com.jgt.autotext.database.DatabaseTaskListener;
 import com.jgt.autotext.database.item.Item;
 import com.jgt.autotext.database.item.ItemRepository;
 import com.jgt.autotext.utils.Constants;
+import com.jgt.autotext.utils.SharedPref;
 
 public class EditFragmentModel implements IEditFragmentContract.Model, DatabaseTaskListener {
     private static final String TAG = EditFragmentModel.class.getSimpleName();
@@ -28,6 +29,18 @@ public class EditFragmentModel implements IEditFragmentContract.Model, DatabaseT
         TASK = Constants.TASK_DELETE_ALL;
         itemRepository.deleteAll(this);
     }
+
+    //Temporary
+    @Override
+    public void setSmsEnabled() {
+        SharedPref.get().setSmsEnabled(true);
+    }
+
+    @Override
+    public void setSmsDisabled() {
+        SharedPref.get().setSmsEnabled(false);
+    }
+    //Temporary
 
     @Override
     public void onFinish() {

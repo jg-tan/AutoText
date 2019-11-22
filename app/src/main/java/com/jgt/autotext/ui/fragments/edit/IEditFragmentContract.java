@@ -8,6 +8,12 @@ public interface IEditFragmentContract {
         void insertItem(Item item);
 
         void deleteAll();
+
+        //Temporary
+        void setSmsEnabled();
+
+        void setSmsDisabled();
+        //Temporary
     }
 
     interface View extends IBaseContract.View {
@@ -30,5 +36,11 @@ public interface IEditFragmentContract {
         void onInsertSuccess();
 
         void onDeleteAllSuccess();
+
+        //Temporary
+        void onDisableClicked();
+
+        void onEnableClicked();
+        //Temporary
     }
 }

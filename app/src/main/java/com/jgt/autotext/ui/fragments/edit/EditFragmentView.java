@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.jgt.autotext.R;
-import com.jgt.autotext.database.item.Item;
 import com.jgt.autotext.ui.activities.main.MainActivityView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +23,9 @@ public class EditFragmentView extends Fragment implements IEditFragmentContract.
     private View rootView;
     private EditText etName, etNumber, etMessage;
     private Button btnAdd, btnDeleteAll;
+    //Temporary
+    private Button btnEnable, btnDisable;
+    //Temporary
 
     @Nullable
     @Override
@@ -49,8 +51,14 @@ public class EditFragmentView extends Fragment implements IEditFragmentContract.
         btnAdd = rootView.findViewById(R.id.fragment_edit_btn_add);
         btnDeleteAll = rootView.findViewById(R.id.fragment_edit_btn_delete_all);
 
+        btnEnable = rootView.findViewById(R.id.fragment_edit_btn_enable_sms);
+        btnDisable = rootView.findViewById(R.id.fragment_edit_btn_disable_sms);
+
         btnAdd.setOnClickListener(this);
         btnDeleteAll.setOnClickListener(this);
+
+        btnEnable.setOnClickListener(this);
+        btnDisable.setOnClickListener(this);
     }
 
     @Override
@@ -66,6 +74,14 @@ public class EditFragmentView extends Fragment implements IEditFragmentContract.
             case R.id.fragment_edit_btn_delete_all:
                 presenter.onDeleteAllClicked();
                 break;
+            //Temporary
+            case R.id.fragment_edit_btn_enable_sms:
+                presenter.onEnableClicked();
+                break;
+            case R.id.fragment_edit_btn_disable_sms:
+                presenter.onDisableClicked();
+                break;
+            //Temporary
             default:
                 break;
         }

@@ -63,6 +63,18 @@ public class EditFragmentPresenter implements IEditFragmentContract.Presenter {
         view.showDeleteAllSuccessToast();
     }
 
+    //Temporary
+    @Override
+    public void onDisableClicked() {
+        model.setSmsDisabled();
+    }
+
+    @Override
+    public void onEnableClicked() {
+        model.setSmsEnabled();
+    }
+    //Temporary
+
     @Override
     public void onDeleteAllClicked() {
         model.deleteAll();
