@@ -1,9 +1,11 @@
 package com.jgt.autotext.ui.fragments.edit;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -115,5 +117,15 @@ public class EditFragmentView extends Fragment implements IEditFragmentContract.
     public void showMessageEmptyToast() {
         Toast.makeText(activity, getResources().getString(R.string.fragment_edit_toast_message_empty),
                 Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void dismissKeyboard() {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        View view = activity.getCurrentFocus();
+        if(null == view) {
+            view = new View(activity);
+        }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

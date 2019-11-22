@@ -26,6 +26,8 @@ public interface IEditFragmentContract {
         void showNumberEmptyToast();
 
         void showMessageEmptyToast();
+
+        void dismissKeyboard();
     }
 
     interface Presenter extends IBaseContract.Presenter {
