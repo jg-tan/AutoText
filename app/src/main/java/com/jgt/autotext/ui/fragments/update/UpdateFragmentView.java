@@ -30,7 +30,7 @@ public class UpdateFragmentView extends Fragment implements IUpdateFragmentContr
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_add, container, false);
+        rootView = inflater.inflate(R.layout.fragment_update, container, false);
         setPresenter(new UpdateFragmentPresenter(this));
         presenter.onCreate();
         return rootView;
@@ -46,9 +46,9 @@ public class UpdateFragmentView extends Fragment implements IUpdateFragmentContr
         activity = (MainActivityView) getActivity();
 
         etName = rootView.findViewById(R.id.fragment_update_et_item_name);
-        etNumber = rootView.findViewById(R.id.fragment_add_et_item_number);
-        etMessage = rootView.findViewById(R.id.fragment_add_et_item_message);
-        btnUpdate = rootView.findViewById(R.id.fragment_add_btn_add);
+        etNumber = rootView.findViewById(R.id.fragment_update_et_item_number);
+        etMessage = rootView.findViewById(R.id.fragment_update_et_item_message);
+        btnUpdate = rootView.findViewById(R.id.fragment_update_btn_update);
 
         etName.setText(getArguments().getString(Constants.FRAGMENT_UPDATE_ITEM_NAME));
         btnUpdate.setOnClickListener(this);
@@ -58,7 +58,7 @@ public class UpdateFragmentView extends Fragment implements IUpdateFragmentContr
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.fragment_add_btn_add:
+            case R.id.fragment_update_btn_update:
                 String name = getArguments().getString(Constants.FRAGMENT_UPDATE_ITEM_NAME);
                 String number = etNumber.getText().toString();
                 String message = etMessage.getText().toString();
@@ -71,13 +71,13 @@ public class UpdateFragmentView extends Fragment implements IUpdateFragmentContr
 
     @Override
     public void showNumberEmptyToast() {
-        Toast.makeText(activity, getResources().getString(R.string.fragment_add_toast_number_empty),
+        Toast.makeText(activity, getResources().getString(R.string.fragment_update_toast_number_empty),
                 Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void showMessageEmptyToast() {
-        Toast.makeText(activity, getResources().getString(R.string.fragment_add_toast_message_empty),
+        Toast.makeText(activity, getResources().getString(R.string.fragment_update_toast_message_empty),
                 Toast.LENGTH_LONG).show();
     }
 
@@ -93,7 +93,7 @@ public class UpdateFragmentView extends Fragment implements IUpdateFragmentContr
 
     @Override
     public void showUpdateItemSuccessToast() {
-        Toast.makeText(activity, getResources().getString(R.string.fragment_add_toast_message_empty),
+        Toast.makeText(activity, getResources().getString(R.string.fragment_update_toast_insert_success),
                 Toast.LENGTH_LONG).show();
     }
 }

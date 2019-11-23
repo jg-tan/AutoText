@@ -41,7 +41,7 @@ public class MainActivityView extends AppCompatActivity implements IMainActivity
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.nav_view);
         appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_grid, R.id.navigation_list, R.id.navigation_edit)
+                R.id.navigation_grid, R.id.navigation_list, R.id.navigation_add, R.id.navigation_update)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
