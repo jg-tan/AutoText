@@ -1,6 +1,7 @@
 package com.jgt.autotext.ui.fragments.list;
 
 import com.jgt.autotext.database.item.Item;
+import com.jgt.autotext.utils.Log;
 
 import java.util.List;
 
@@ -54,5 +55,10 @@ public class ListFragmentPresenter implements IListFragmentContract.Presenter {
     public void onItemDeleted() {
         view.showItemDeletedSuccess();
         model.populateItemList();
+    }
+
+    @Override
+    public void onItemLongPressed(int position) {
+        Log.d(TAG, "item long pressed");
     }
 }

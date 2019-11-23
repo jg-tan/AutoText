@@ -19,7 +19,7 @@
     <!-- Fragment Strings -->
     <!-- Grid Fragment -->
 
-    <!-- Edit Fragment -->
+    <!-- Add Fragment -->
     <!-- Layout Strings -->
     <string name="fragment_add_tv_item_name">NAME</string>
     <string name="fragment_add_tv_item_number">NUMBER</string>
@@ -33,6 +33,6 @@
     <string name="fragment_add_toast_name_empty">Please add contact name</string>
     <string name="fragment_add_toast_number_empty">Please add contact number</string>
     <string name="fragment_add_toast_message_empty">Please add a message</string>
-    <!-- Edit Fragment -->
+    <!-- Add Fragment -->
 
 </resources>

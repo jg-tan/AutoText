@@ -28,5 +28,7 @@ public interface IListFragmentContract {
         void onItemDeleteClicked(int position);
 
         void onItemDeleted();
+
+        void onItemLongPressed(int position);
     }
 }
