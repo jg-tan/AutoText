@@ -9,11 +9,13 @@ import android.widget.Toast;
 import com.jgt.autotext.R;
 import com.jgt.autotext.ui.activities.main.MainActivityView;
 import com.jgt.autotext.ui.adapters.ItemListAdapter;
+import com.jgt.autotext.utils.Constants;
 import com.jgt.autotext.utils.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -98,7 +100,9 @@ public class ListFragmentView extends Fragment implements IListFragmentContract.
         int id = v.getId();
         switch (id) {
             case R.id.fragment_list_item_container:
-                presenter.onItemLongPressed(position);
+                Bundle args = new Bundle();
+                args.putString(Constants.FRAGMENT_UPDATE_ITEM_NAME, presenter.getItemList().get(position).getItemName());
+                Navigation.findNavController(v).navigate(R.id.fragment_list_action_item_long_press, args);
                 break;
             default:
                 break;

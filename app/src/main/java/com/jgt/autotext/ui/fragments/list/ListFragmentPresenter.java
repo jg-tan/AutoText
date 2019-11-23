@@ -56,9 +56,4 @@ public class ListFragmentPresenter implements IListFragmentContract.Presenter {
         view.showItemDeletedSuccess();
         model.populateItemList();
     }
-
-    @Override
-    public void onItemLongPressed(int position) {
-        Log.d(TAG, "item long pressed");
-    }
 }
