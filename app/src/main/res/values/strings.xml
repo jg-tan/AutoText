@@ -3,6 +3,7 @@
     <string name="title_grid">Grid</string>
     <string name="title_list">List</string>
     <string name="title_add">Add</string>
+    <string name="title_update">Update</string>
 
     <!-- List Fragment -->
     <!-- Layout Strings -->
@@ -35,4 +36,16 @@
     <string name="fragment_add_toast_message_empty">Please add a message</string>
     <!-- Add Fragment -->
 
+    <!-- Update Fragment -->
+    <!-- Layout Strings -->
+    <string name="fragment_update_tv_item_name">NAME</string>
+    <string name="fragment_update_tv_item_number">NUMBER</string>
+    <string name="fragment_update_tv_item_message">MESSAGE</string>
+    <string name="fragment_update_btn_add">UPDATE</string>
+
+    <!-- Fragment Strings -->
+    <string name="fragment_update_toast_insert_success">Item updated!</string>
+    <string name="fragment_update_toast_number_empty">Please add contact number</string>
+    <string name="fragment_update_toast_message_empty">Please add a message</string>
+    <!-- Update Fragment -->
 </resources>
