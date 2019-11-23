@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_edit"
-        android:name="com.jgt.autotext.ui.fragments.edit.EditFragmentView"
-        android:label="@string/title_edit"
-        tools:layout="@layout/fragment_edit" />
+        android:name="com.jgt.autotext.ui.fragments.add.AddFragmentView"
+        android:label="@string/title_add"
+        tools:layout="@layout/fragment_add" />
 </navigation>

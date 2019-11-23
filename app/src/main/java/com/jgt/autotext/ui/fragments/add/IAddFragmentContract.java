@@ -1,9 +1,9 @@
-package com.jgt.autotext.ui.fragments.edit;
+package com.jgt.autotext.ui.fragments.add;
 
 import com.jgt.autotext.database.item.Item;
 import com.jgt.autotext.ui.IBaseContract;
 
-public interface IEditFragmentContract {
+public interface IAddFragmentContract {
     interface Model extends IBaseContract.Model {
         void insertItem(Item item);
 
