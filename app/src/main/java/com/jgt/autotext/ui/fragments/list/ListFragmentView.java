@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ListFragmentView extends Fragment implements IListFragmentContract.View, View.OnClickListener {
+public class ListFragmentView extends Fragment implements IListFragmentContract.View, View.OnClickListener, View.OnLongClickListener {
     private static final String TAG = ListFragmentView.class.getSimpleName();
     private IListFragmentContract.Presenter presenter;
 
@@ -50,6 +50,7 @@ public class ListFragmentView extends Fragment implements IListFragmentContract.
         linearLayoutManager = new LinearLayoutManager(activity);
 
         adapter.setOnClickListener(this);
+        adapter.setOnLongClickListener(this);
         rvItemList.setHasFixedSize(true);
         rvItemList.setLayoutManager(linearLayoutManager);
         rvItemList.setAdapter(adapter);
@@ -84,5 +85,24 @@ public class ListFragmentView extends Fragment implements IListFragmentContract.
             default:
                 break;
         }
+    }
+
+    @Override
+    public boolean onLongClick(View v) {
+        if (!(v.getTag() instanceof RecyclerView.ViewHolder)) {
+            return false;
+        }
+
+        RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) v.getTag();
+        int position = viewHolder.getAdapterPosition();
+        int id = v.getId();
+        switch (id) {
+            case R.id.fragment_list_item_container:
+                presenter.onItemLongPressed(position);
+                break;
+            default:
+                break;
+        }
+        return true;
     }
 }

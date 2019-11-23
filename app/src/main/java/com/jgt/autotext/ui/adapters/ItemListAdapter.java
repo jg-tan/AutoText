@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jgt.autotext.R;
@@ -19,6 +20,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
 
     private List<Item> itemList;
     private View.OnClickListener onClickListener;
+    private View.OnLongClickListener onLongClickListener;
 
     @NonNull
     @Override
@@ -35,6 +37,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
             holder.tvMessage.setText(itemList.get(position).getItemMessage());
             holder.tvCount.setText(String.valueOf(itemList.get(position).getItemCount()));
             holder.btnDelete.setOnClickListener(onClickListener);
+            holder.itemContainer.setOnLongClickListener(onLongClickListener);
         }
     }
 
@@ -55,9 +58,14 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
         this.onClickListener = listener;
     }
 
+    public void setOnLongClickListener(View.OnLongClickListener listener) {
+        this.onLongClickListener = listener;
+    }
+
     class ItemListViewHolder extends RecyclerView.ViewHolder {
         public TextView tvName, tvNumber, tvMessage, tvCount;
         public ImageButton btnDelete;
+        public LinearLayout itemContainer;
 
         public ItemListViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -66,7 +74,9 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
             this.tvMessage = itemView.findViewById(R.id.fragment_list_tv_message);
             this.tvCount = itemView.findViewById(R.id.fragment_list_tv_count);
             this.btnDelete = itemView.findViewById(R.id.fragment_list_btn_delete);
+            this.itemContainer = itemView.findViewById(R.id.fragment_list_item_container);
             this.btnDelete.setTag(this);
+            this.itemContainer.setTag(this);
         }
     }
 }
