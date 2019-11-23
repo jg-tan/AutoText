@@ -1,15 +1,15 @@
-package com.jgt.autotext.ui.fragments.edit;
+package com.jgt.autotext.ui.fragments.add;
 
 import com.jgt.autotext.database.item.Item;
 
-public class EditFragmentPresenter implements IEditFragmentContract.Presenter {
-    private static final String TAG = EditFragmentPresenter.class.getSimpleName();
-    private IEditFragmentContract.Model model;
-    private IEditFragmentContract.View view;
+public class AddFragmentPresenter implements IAddFragmentContract.Presenter {
+    private static final String TAG = AddFragmentPresenter.class.getSimpleName();
+    private IAddFragmentContract.Model model;
+    private IAddFragmentContract.View view;
 
-    public EditFragmentPresenter(IEditFragmentContract.View view) {
+    public AddFragmentPresenter(IAddFragmentContract.View view) {
         this.view = view;
-        setModel(new EditFragmentModel(this));
+        setModel(new AddFragmentModel(this));
     }
 
     @Override
@@ -29,7 +29,7 @@ public class EditFragmentPresenter implements IEditFragmentContract.Presenter {
 
     @Override
     public void setModel(Object o) {
-        this.model = (IEditFragmentContract.Model) o;
+        this.model = (IAddFragmentContract.Model) o;
     }
 
     @Override

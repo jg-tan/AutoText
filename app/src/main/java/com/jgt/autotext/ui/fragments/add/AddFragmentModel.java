@@ -1,4 +1,4 @@
-package com.jgt.autotext.ui.fragments.edit;
+package com.jgt.autotext.ui.fragments.add;
 
 import com.jgt.autotext.database.DatabaseTaskListener;
 import com.jgt.autotext.database.item.Item;
@@ -6,14 +6,14 @@ import com.jgt.autotext.database.item.ItemRepository;
 import com.jgt.autotext.utils.Constants;
 import com.jgt.autotext.utils.SharedPref;
 
-public class EditFragmentModel implements IEditFragmentContract.Model, DatabaseTaskListener {
-    private static final String TAG = EditFragmentModel.class.getSimpleName();
-    private IEditFragmentContract.Presenter presenter;
+public class AddFragmentModel implements IAddFragmentContract.Model, DatabaseTaskListener {
+    private static final String TAG = AddFragmentModel.class.getSimpleName();
+    private IAddFragmentContract.Presenter presenter;
     private ItemRepository itemRepository;
 
     private String TASK = "";
 
-    public EditFragmentModel(IEditFragmentContract.Presenter presenter) {
+    public AddFragmentModel(IAddFragmentContract.Presenter presenter) {
         this.presenter = presenter;
         itemRepository = ItemRepository.getInstance();
     }

@@ -2,7 +2,7 @@
     <string name="app_name">AutoText</string>
     <string name="title_grid">Grid</string>
     <string name="title_list">List</string>
-    <string name="title_edit">Edit</string>
+    <string name="title_add">Add</string>
 
     <!-- List Fragment -->
     <!-- Layout Strings -->
@@ -21,18 +21,18 @@
 
     <!-- Edit Fragment -->
     <!-- Layout Strings -->
-    <string name="fragment_edit_tv_item_name">NAME</string>
-    <string name="fragment_edit_tv_item_number">NUMBER</string>
-    <string name="fragment_edit_tv_item_message">MESSAGE</string>
-    <string name="fragment_edit_btn_add">ADD</string>
-    <string name="fragment_edit_btn_delete_all">DELETE ALL</string>
+    <string name="fragment_add_tv_item_name">NAME</string>
+    <string name="fragment_add_tv_item_number">NUMBER</string>
+    <string name="fragment_add_tv_item_message">MESSAGE</string>
+    <string name="fragment_add_btn_add">ADD</string>
+    <string name="fragment_add_btn_delete_all">DELETE ALL</string>
 
     <!-- Fragment Strings -->
-    <string name="fragment_edit_toast_insert_success">Item added!</string>
-    <string name="fragment_edit_toast_delete_all_success">All items deleted!</string>
-    <string name="fragment_edit_toast_name_empty">Please add contact name</string>
-    <string name="fragment_edit_toast_number_empty">Please add contact number</string>
-    <string name="fragment_edit_toast_message_empty">Please add a message</string>
+    <string name="fragment_add_toast_insert_success">Item added!</string>
+    <string name="fragment_add_toast_delete_all_success">All items deleted!</string>
+    <string name="fragment_add_toast_name_empty">Please add contact name</string>
+    <string name="fragment_add_toast_number_empty">Please add contact number</string>
+    <string name="fragment_add_toast_message_empty">Please add a message</string>
     <!-- Edit Fragment -->
 
 </resources>
