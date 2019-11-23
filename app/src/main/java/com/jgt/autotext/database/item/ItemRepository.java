@@ -8,8 +8,8 @@ import java.util.List;
 
 public class ItemRepository {
     private static ItemRepository instance;
-    private ItemDao itemDao;
-    private List<Item> itemList;
+    private static ItemDao itemDao;
+    private static List<Item> itemList;
 
     private ItemRepository() {
         ItemDatabase db = ItemDatabase.getInstance();
@@ -27,6 +27,10 @@ public class ItemRepository {
 
     public void insertItem(Item item, DatabaseTaskListener listener) {
         new InsertItemAsyncTask(item, itemDao, listener).execute();
+    }
+
+    public void updateItem(Item item, DatabaseTaskListener listener) {
+        new UpdateItemAsyncTask(item, itemDao, listener).execute();
     }
 
     public void populateItemList(DatabaseTaskListener listener) {
@@ -49,7 +53,7 @@ public class ItemRepository {
         new AddItemCountAsyncTask(itemName, itemDao, listener).execute();
     }
 
-    class InsertItemAsyncTask extends AsyncTask<Void, Void, Void> {
+    static class InsertItemAsyncTask extends AsyncTask<Void, Void, Void> {
         private Item item;
         private ItemDao itemDao;
         private DatabaseTaskListener listener;
@@ -73,7 +77,31 @@ public class ItemRepository {
         }
     }
 
-    class AddItemCountAsyncTask extends AsyncTask<Void, Void, Void> {
+    static class UpdateItemAsyncTask extends AsyncTask<Void, Void, Void> {
+        private Item item;
+        private ItemDao itemDao;
+        private DatabaseTaskListener listener;
+
+        public UpdateItemAsyncTask(Item item, ItemDao itemDao, DatabaseTaskListener listener) {
+            this.item = item;
+            this.itemDao = itemDao;
+            this.listener = listener;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            itemDao.updateItem(item.getItemName(), item.getItemNumber(), item.getItemMessage());
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            listener.onFinish();
+            super.onPostExecute(aVoid);
+        }
+    }
+
+    static class AddItemCountAsyncTask extends AsyncTask<Void, Void, Void> {
         private String itemName;
         private ItemDao itemDao;
         private DatabaseTaskListener listener;
@@ -97,7 +125,7 @@ public class ItemRepository {
         }
     }
 
-    class DeleteItemAsyncTask extends AsyncTask<Void, Void, Void> {
+    static class DeleteItemAsyncTask extends AsyncTask<Void, Void, Void> {
         private String itemName;
         private ItemDao itemDao;
         private DatabaseTaskListener listener;
@@ -126,7 +154,7 @@ public class ItemRepository {
         }
     }
 
-    class QueryItemAsyncTask extends AsyncTask<Void, Void, Void> {
+    static class QueryItemAsyncTask extends AsyncTask<Void, Void, Void> {
         private ItemDao itemDao;
         private DatabaseTaskListener listener;
 
