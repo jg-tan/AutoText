@@ -27,4 +27,9 @@ public interface ItemDao {
             "SET item_count = item_count + 1 " +
             "WHERE item_name == :itemName")
     void addCount(String itemName);
+
+    @Query("UPDATE item_table " +
+            "SET item_number = :itemNumber, item_message = :itemMessage " +
+            "WHERE item_name == :itemName")
+    void updateItem(String itemName, String itemNumber, String itemMessage);
 }
